@@ -150,11 +150,16 @@ function cargarProductos() {
       contentType: "application/json",
       success: function (order) {
         alert("Orden registrada. El coordinador de su zona revisará su pedido");
-        location.href = "ordenDePedido.html";
+        location.href = "createorder.html";
       },
       error: function (jqXHR, textStatus, errorThrown) {
         console.log("Error creando orden depedido");
       },
     });
     }
+  }
+
+  function cerrarsesion() {
+    sessionStorage.removeItem("user");
+    location.href = "index.html";
   }
