@@ -1,7 +1,8 @@
-package usa.edu.co.reto2.web;
+package reto4.reto4.controlador;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,51 +15,52 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
-import usa.edu.co.reto2.model.User;
-import usa.edu.co.reto2.service.UserService;
 
-/**
- *
- * @author karen
- */
+import reto4.reto4.modelo.ModeloUser;
+import reto4.reto4.servicios.ServiciosUser;
+
 @RestController
 @RequestMapping("/api/user")
 @CrossOrigin("*")
-public class UserController {
-    
-     @Autowired
-    private UserService userService;
-     
-     @GetMapping("/all")
-    public List<User> getAll() {
-        return userService.getAll();
+public class ControladorUser {
+    @Autowired
+    private ServiciosUser UserService;
+
+    @GetMapping("/all")
+    public List<ModeloUser> getAll() {
+        return UserService.getAll();
     }
+    
     @GetMapping("/{id}")
-    public Optional <User> getUser(@PathVariable("id") int id) {
-        return userService.getUser(id);
-    }
-      @PostMapping("/new")
-    @ResponseStatus(HttpStatus.CREATED)
-    public User create(@RequestBody User user) {
-        return userService.create(user);
+    public Optional <ModeloUser> getUser(@PathVariable("id") int id) {
+        return UserService.getUser(id);
     }
     
+    @PostMapping("/new")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ModeloUser create(@RequestBody ModeloUser user) {
+        return UserService.create(user);
+    }
+
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public User update(@RequestBody User user) {
-        return userService.update(user);
+    public ModeloUser update(@RequestBody ModeloUser user) {
+        return UserService.update(user);
     }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int id) {
-        return userService.delete(id);
+    public boolean delete (@PathVariable("id") int id) {
+        return UserService.delete(id);
     }
+    
     @GetMapping("/{email}/{password}")
-    public User authenticateUser(@PathVariable("email") String email, @PathVariable("password") String password) {
-        return userService.authenticateUser(email, password);
+    public ModeloUser authenticateUser(@PathVariable("email") String email, @PathVariable("password") String password) {
+        return UserService.authenticateUser(email, password);
     }
-      @GetMapping("/emailexist/{email}")
+
+    @GetMapping("/emailexist/{email}")
     public boolean emailExists(@PathVariable("email") String email) {
-        return userService.emailExists(email);
+        return UserService.emailExists(email);
     }
 }
