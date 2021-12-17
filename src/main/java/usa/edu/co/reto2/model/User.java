@@ -1,19 +1,26 @@
-package reto4.reto4.modelo;
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package usa.edu.co.reto2.model;
 
 import java.util.Date;
-
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ *
+ * @author crist
+ */
 @Document(collection = "usuarios")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ModeloUser {
+public class User {
+
     @Id
     private Integer id;
     private String identification;
@@ -26,4 +33,5 @@ public class ModeloUser {
     private String password;
     private String zone;
     private String type;
+
 }
