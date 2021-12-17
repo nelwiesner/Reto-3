@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WillyWonka Store | Usuarios</title>
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/mytemplatestyle.css">
+</head>
+
+<body onload="validatesesionupdate()">
+    <div class="wrapper">
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+                <li class="nav-item">
+                    <img class="logo-wonka" src="img/logowillybonka.jpeg" />
+                </li>
+            </ul>
+        </nav>
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+                    <div class="info">
+                        <a href="#" class="d-block">Bienvenido <span id="nameuser"></span></a>
+                    </div>
+                </div>
+
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                        data-accordion="false">
+
+                        <li class="nav-item">
+                            <a href="users.html" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Administrar Usuarios
+                                </p>
+                            </a>
+                        </li>  
+                        <li class="nav-item">
+                            <a href="products.html" class="nav-link">
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>
+                                    Administrar Productos
+                                </p>
+                            </a>
+                        </li>  
+                         <li class="nav-item">
+                            <a href="#" class="nav-link" onclick="cerrarsesion()">
+                                <i class="nav-icon fas fa-sign-out-alt"></i>
+                                <p>
+                                    Cerrar sesion
+                                </p>
+                            </a>
+                        </li>    
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header border-0">
+                                <div class="d-flex justify-content-between">
+                                    <h3 class="card-title">Crear Nuevo Usuario</h3>
+                                    <a href="users.html">Ver Usuarios</a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form onsubmit="return false;" id="loginForm">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="identificacion">Identificación</label>
+                                            <input type="number" name="identificacion" class="form-control"
+                                                id="identificacion" placeholder="Ingrese Identificación">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Nombre">Nombre</label>
+                                            <input type="text" name="nombre" class="form-control" id="nombre"
+                                                placeholder="Ingrese Nombre">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Direccion">Dirección</label>
+                                            <input type="text" name="direccion" class="form-control" id="direccion"
+                                                placeholder="Ingrese Dirección">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Celular">Telefono</label>
+                                            <input type="number" name="celular" class="form-control" id="celular"
+                                                placeholder="Ingrese Número de Telefono">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="email" name="email" class="form-control" id="email"
+                                                placeholder="Ingrese Email">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="Password">Contraseña</label>
+                                            <input type="password" name="password" class="form-control" id="password"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="repeatPassword">Repita Contraseña</label>
+                                            <input type="password" name="repeatPassword" class="form-control" id="repeatPassword"
+                                                placeholder="Password">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="zona">Zona</label>
+                                            <input type="text" name="zona" class="form-control" id="zona"
+                                                placeholder="Ingrese Zona">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tipo">Tipo</label>
+                                            <select class="form-control" id="type">
+                                                <option value="COORD">Coordinador de Zona</option>
+                                                <option value="ASE">Asesor Comercial</option>
+                                                <option value="ADM">Administrador</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <button id="btn-create" type="submit" class="btn btn-primary"
+                                            onclick="validateUser()">Guardar</button>
+                                        <button id="btn-update" type="submit" class="btn btn-primary"
+                                            onclick="validateUpdateUser()">Actualizar</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/willywonka.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/mytemplate.js"></script>
+    <script src="js/usercrud.js"></script>
+    <script src="js/jquery.validate.js"></script>
+    <script src="js/additional-methods.js"></script>
+</body>
+
+</html>
