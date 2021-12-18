@@ -33,7 +33,7 @@ function cargarProductos() {
     $("#tablaProductos").empty();
     $.ajax({
       //url: "/api/chocolate/all",
-      url: "http://localhost:8080/api/chocolate/all",
+      url: "http://"+server+"/api/chocolate/all",
       type: "GET",
       dataType: "json",
       contentType: "aplication/JSON",
@@ -143,7 +143,7 @@ function cargarProductos() {
     let dataToSend = JSON.stringify(orden);
     $.ajax({
       //url: "/api/order/new",
-      url: "http://localhost:8080/api/order/new",
+      url: "http://"+server+"/api/order/new",
       type: "POST",
       data: dataToSend,
       datatype: "JSON",

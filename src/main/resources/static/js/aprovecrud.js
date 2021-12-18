@@ -115,7 +115,7 @@ function saveorder(orden) {
     let dataToSend = JSON.stringify(orden);
     $.ajax({
       //url: "/api/order/new",
-      url: "http://localhost:8080/api/order/update",
+      url: "http://"+ server +"/api/order/update",
       type: "PUT",
       data: dataToSend,
       datatype: "JSON",
